@@ -55,4 +55,4 @@ Client code is in the client directory. webpack is configured around index.html 
 
 Open the web browser to `http://localhost:8888/`
 
-[screenshot1]: https://github.com/medicope/FED-Exercise/blob/master/docs/screenshot1.png "Screenshot"
+[screenshot1]: https://github.com/medicope/FED-Exercise-omer257/blob/master/docs/screenshot1.png "Screenshot"
