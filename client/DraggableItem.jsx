@@ -67,10 +67,9 @@ class Item extends React.Component {
                 id: item.id
             },
             {
-                listId: this.props.listId===0?1:0,
+                listId: this.props.listId=== 0 ? 1 : 0,
                 id: this.props.id
             });
-            console.log('xxx');
         }
 
     render () {

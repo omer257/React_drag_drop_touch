@@ -61,7 +61,7 @@ function ItemPreview ({
 }
 
 ItemPreview.propTypes = {
-    id: React.PropTypes.string,
+    id: React.PropTypes.number,
     name: React.PropTypes.string,
     artist: React.PropTypes.string,
     image: React.PropTypes.string,

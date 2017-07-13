@@ -5,7 +5,7 @@ module.exports = function (props) {
 				<div draggable="false" className="timeline-badge">{props.props.index + 1}</div>
 				<div draggable="false" className="timeline-panel">
 				<div draggable="false"  className="trash">
-				<span className="icon-trash" onClick={() => {this.props.deleteCard(item)}}></span>
+				<span className="icon-trash" onClick={()=>{props.onReorder()}}></span>
 				</div>
 				<div draggable="false" className="move">
 				<span className="icon-dots"></span>
