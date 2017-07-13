@@ -19,12 +19,16 @@ let initialData2 = [];
 let cssObj = [{
     mainId:'left',
     mainClass:'col-sm-5',
+    isSearchForm:true,
+    isDottedClass:"dotted",
     h1Color:'#000000',
     ulClass:'timeline',
     h1:'My songlist'
 },{
     mainId:'right',
     mainClass:'col-sm-7',
+    isSearchForm:false,
+    isDottedClass:'',
     h1Color:'#ffffff',
     ulClass:'timeline timeline_center',
     h1:'My playlist'
