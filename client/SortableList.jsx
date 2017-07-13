@@ -40,11 +40,13 @@ export default function SortableList ({ data, id, onReorder, cssObj }) {
           <h3 style={{color: cssObj.h1Color}}>{cssObj.h1}</h3>
         </div>
             <ul className={cssObj.ulClass}>
-                <ReactCSSTransitionGroup
-                transitionName="playlist"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}>
-                {items}
+               <ReactCSSTransitionGroup
+                    transitionName="example"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                    {items}
                 </ReactCSSTransitionGroup>
             </ul>
 

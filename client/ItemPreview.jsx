@@ -53,9 +53,8 @@ function ItemPreview ({
     return (
         <div
             className="item preview"
-            style={getItemStyles(currentOffset)}
-        >
-            {id} {name}{artist}{image}  Preview!
+            style={getItemStyles(currentOffset)}>
+            {name} - {artist}
         </div>
     );
 }
