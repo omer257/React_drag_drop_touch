@@ -27,15 +27,16 @@ export default function SortableList ({ data, id, onReorder, cssObj }) {
     ));
 
     let templateElem = null;
+    let classDotted = null;
     if (cssObj.mainId==='left') {
     templateElem = <SearchForm/>;
+        classDotted = "dotted";
     } 
 
     return (
-
-    <div className="col-sm-6" id={cssObj.mainId}>
+    <div className={cssObj.mainClass} id={cssObj.mainId}>
         {templateElem}
-        <div className="dotted">
+        <div className={classDotted}>
           <h3 style={{color: cssObj.h1Color}}>{cssObj.h1}</h3>
         </div>
             <ul className={cssObj.ulClass}>

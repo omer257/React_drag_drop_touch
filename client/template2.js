@@ -11,7 +11,7 @@ module.exports = function (props) {
 				<span className="icon-dots"></span>
 				</div>
 				<div draggable="false"  className="timeline-heading">
-				<h4 className="timeline-title" draggable="false" >{props.props.artist} {props.props.name}</h4>
+				<h5 className="timeline-title" draggable="false" >{props.props.artist} {props.props.name}</h5>
 				</div>
 				</div>
 			</div>

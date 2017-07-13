@@ -6,8 +6,8 @@ module.exports = function (props) {
 					<div draggable="false"  className="timeline-panel">
 					<img draggable="false"  src={props.props.image} alt={props.props.artist + " " + props.props.name}/>
 						<div draggable="false"  className="timeline-heading">
-							<h4 draggable="false"  className="timeline-title">{props.props.artist}
-							- {props.props.name}</h4>
+							<h5 draggable="false"  className="timeline-title">{props.props.artist}
+							- {props.props.name}</h5>
 						</div>
 					</div>
 				</div>

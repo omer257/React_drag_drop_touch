@@ -134,13 +134,13 @@ $yellow-dark: #EDA71B;
 }
 
 .search-form:after {
-   top: 36px;
+       top: 36px;
     bottom: 0;
     position: absolute;
     content: "";
     background-color: transparent;
-    left: 10%;
-    margin-left: -2px;
+    left: 12%;
+    margin-left: -1px;
     padding-left: 0px;
     border-left: 1px dashed #c3c3c3;
     font-size: 188%;
@@ -246,6 +246,8 @@ h6 {
     }
 }
 
+
+
 .timeline {
     position: relative;
     list-style: none;
@@ -293,7 +295,7 @@ h6 {
 .timeline>span>li>div>.timeline-panel {
     width: 100%;
     float: left;
-    padding: 15px;
+    padding: 5px;
     position: relative;
     background-color: white;
     cursor: move;
@@ -312,17 +314,7 @@ h6 {
     border-left: 0 solid #ffffff;
     border-bottom: 5px solid transparent;
     content: " ";
-} // .timeline > span > li > div > .timeline-panel:after {
-//     position: absolute;
-//     top: 27px;
-//     right: -14px;
-//     display: inline-block;
-//     border-top: 14px solid transparent;
-//     border-left: 14px solid #fff;
-//     border-right: 0 solid #fff;
-//     border-bottom: 14px solid transparent;
-//     content: " ";
-// }
+}
 .timeline>span>li>div>.timeline-badge {
     color: #fff;
     width: 7px;
@@ -342,32 +334,7 @@ h6 {
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
-}
-
-.timeline>span>li.timeline-inverted>.timeline-panel {
-    float: right;
-}
-
-.timeline>span>li.timeline-inverted>.timeline-panel:before {
-    position: absolute;
-    top: calc(50% - 6px);
-    top: -moz-calc(50% - 6px);
-    top: -webkit-calc(50% - 6px);
-    right: -15px;
-    display: inline-block;
-    border-top: 5px solid transparent;
-    border-left: 5px solid #ffffff;
-    border-right: 0 solid #ffffff;
-    border-bottom: 5px solid transparent;
-    content: " ";
-}
-
-.timeline>span>li.timeline-inverted>.timeline-panel:after {
-    //         border-left-width: 0;
-    // border-right-width: 7px;
-    // left: -7px;
-    // right: auto;
-}
+}  
 
 .timeline-badge.blue {
     background-color: $blue !important;
@@ -421,27 +388,82 @@ h6 {
     }
 }
 
+
+.timeline_center {
+       width: 80%;
+    margin-left: 10%;
+    padding-top: 32px;
+}
+.timeline_center:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 1px;
+    background-color: $white ;
+    left: 50%;
+    margin-left: -1.5px;
+}
+.timeline_center:after {
+           top: 0px;
+        bottom: 0;
+        position: absolute;
+        content: "";
+        width: 11px;
+        background-color: #ffffff;
+        left: 48.5%;
+        margin-left: 0;
+        width: 10px;
+        height: 10px;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        font-size: 70%;
+        }
+.timeline_center > span > li > div > .timeline-badge{
+            color: $grey-dark;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 1.4em;
+    text-align: center;
+    position: absolute;
+    background-color: $white;
+    z-index: 100;
+    border: 1px solid $grey-dark;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    font-size: 70%;
+    left: 50.5%;
+    margin-left: 0;
+    top: calc(95% - 4px);
+    top: -moz-calc(95% - 4px);
+    top: -webkit-calc(95% - 4px);
+            }
 .timeline-panel img {
-    max-width: 30px;
-    height: 30px;
+    max-width: 27px;
+    height: 27px;
     position: absolute;
     right: -11px;
     border-radius: 50%;
-    top: calc(50% - 15px);
-    top: -moz-calc(50% - 15px);
-    top: -webkit-calc(50% - 15px);
+    top: calc(50% - 13px);
+    top: -moz-calc(50% - 13px);
+    top: -webkit-calc(50% - 13px);
     border: 1px solid $grey-dark;
 }
 
 .timeline-panel .trash {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     position: absolute;
     left: -15px;
     border-radius: 50%;
-    top: calc(50% - 15px);
-    top: -moz-calc(50% - 15px);
-    top: -webkit-calc(50% - 15px);
+    top: calc(50% - 13px);
+    top: -moz-calc(50% - 13px);
+    top: -webkit-calc(50% - 13px);
     background-color: $red;
     color: $grey-light;
     font-size: 150%;

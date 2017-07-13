@@ -18,13 +18,15 @@ let initialData1 = [];
 let initialData2 = [];
 let cssObj = [{
     mainId:'left',
+    mainClass:'col-sm-5',
     h1Color:'#000000',
     ulClass:'timeline',
     h1:'My playlist'
 },{
     mainId:'right',
+    mainClass:'col-sm-7',
     h1Color:'#ffffff',
-    ulClass:'timeline',
+    ulClass:'timeline timeline_center',
     h1:'My songlist'
 }]
 let z = 0;
@@ -53,7 +55,6 @@ function reorder (fromObj, toObj) {
     const dropListId = toObj.listId;
     const dropId = toObj.id;
     console.log(`Dragged ${dragId} in list ${dragListId} to ${dropId} in list ${dropListId}`);
-
     datasource = datasource.withMutations(source => {
         const dragList = source.get(dragListId);
         const dragIndex = dragList.findIndex(item => item.get('id') === dragId);
