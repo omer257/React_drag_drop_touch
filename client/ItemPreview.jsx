@@ -6,6 +6,8 @@
 
 import React from 'react';
 import DragLayer from 'react-dnd/lib/DragLayer';
+var _template1 = require('./template1.js');
+var _template2 = require('./template2.js');
 
 function collect (monitor) {
     var item = monitor.getItem();

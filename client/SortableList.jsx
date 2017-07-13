@@ -7,6 +7,9 @@
 import React from 'react';
 import DraggableItem from './DraggableItem.jsx';
 import { List } from 'immutable';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import SearchForm from './SearchForm'
+
 
 export default function SortableList ({ data, id, onReorder, cssObj }) {
     const items = data.toArray().map((obj,i) => (
@@ -18,17 +21,30 @@ export default function SortableList ({ data, id, onReorder, cssObj }) {
             name={obj.get('name')}
             artist={obj.get('artist')}
             image={obj.get('image')}
-            class={cssObj.liClass}
             onReorder={onReorder}
+            class={cssObj.mainId}
         />
     ));
+
+    let templateElem = null;
+    if (cssObj.mainId==='left') {
+    templateElem = <SearchForm/>;
+    } 
 
     return (
 
     <div className="col-sm-6" id={cssObj.mainId}>
-        <h1>{cssObj.h1}</h1>
+        {templateElem}
+        <div className="dotted">
+          <h3 style={{color: cssObj.h1Color}}>{cssObj.h1}</h3>
+        </div>
             <ul className={cssObj.ulClass}>
-            {items}
+                <ReactCSSTransitionGroup
+                transitionName="playlist"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}>
+                {items}
+                </ReactCSSTransitionGroup>
             </ul>
 
     </div>

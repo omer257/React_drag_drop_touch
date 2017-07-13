@@ -1,20 +1,15 @@
 import React from 'react';
 module.exports = function (props) {
 		return (
-				<div>
-						<div draggable="false" className="timeline_center-badge">{props.props.index + 1}
+				<div onClick={()=>{props.onReorder()}}>
+					<div draggable="false" className="timeline-badge blue"></div>
+					<div draggable="false"  className="timeline-panel">
+					<img draggable="false"  src={props.props.image} alt={props.props.artist + " " + props.props.name}/>
+						<div draggable="false"  className="timeline-heading">
+							<h4 draggable="false"  className="timeline-title">{props.props.artist}
+							- {props.props.name}</h4>
 						</div>
-						<div draggable="false" className="timeline_center-panel">
-								<div draggable="false" className="trash">
-										<span className="icon-trash"></span>
-								</div>
-								<div draggable="false" className="move">
-										<span className="icon-dots"></span>
-								</div>
-								<div draggable="false" className="timeline_center-heading">
-										<h4 className="timeline_center-title" draggable="false">{props.props.artist} {props.props.name}</h4>
-								</div>
-						</div>
+					</div>
 				</div>
 		);
 };

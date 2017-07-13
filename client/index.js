@@ -18,17 +18,17 @@ let initialData1 = [];
 let initialData2 = [];
 let cssObj = [{
     mainId:'left',
+    h1Color:'#000000',
     ulClass:'timeline',
-    liClass:'timelineCenterLi',
     h1:'My playlist'
 },{
     mainId:'right',
-    ulClass:'timeline_center',
-    liClass:'timeline_center_li',
+    h1Color:'#ffffff',
+    ulClass:'timeline',
     h1:'My songlist'
 }]
 let z = 0;
-for (; z < songs.length; z++) {
+for (; z < 3; z++) {
     initialData1.push({
         id: z,
         name: songs[z].title,
@@ -36,7 +36,7 @@ for (; z < songs.length; z++) {
         image: songs[z].image
     });
 }
-for ( let i=0; i<  5; i++) {
+for ( let i=0; i<  3; i++) {
     initialData2.push({
         id: i,
         name: songs[i+1].title,
@@ -52,16 +52,12 @@ function reorder (fromObj, toObj) {
     const dragId = fromObj.id;
     const dropListId = toObj.listId;
     const dropId = toObj.id;
-    if(dropListId===0 && dragListId===1){//prevent draggin from  list 0 to 1
-        return;
-    }
     console.log(`Dragged ${dragId} in list ${dragListId} to ${dropId} in list ${dropListId}`);
 
     datasource = datasource.withMutations(source => {
         const dragList = source.get(dragListId);
         const dragIndex = dragList.findIndex(item => item.get('id') === dragId);
         const dragItem = dragList.get(dragIndex);
-        source.set(dragListId, dragList.delete(dragIndex));//prevent deleting item moving from list 0 to 1s
        
         const dropList = source.get(dropListId);
         let dropIndex = dropList.findIndex(item => item.get('id') === dropId);
@@ -72,6 +68,12 @@ function reorder (fromObj, toObj) {
         ) {
             dropIndex++;
         }
+
+        if(dropListId===0 && dragListId===1){//prevent draggin from  list 0 to 1
+            source.set(dragListId, dragList.delete(dragIndex));//prevent deleting item moving from list 0 to 1s
+            return;
+        }
+        source.set(dragListId, dragList.delete(dragIndex));//prevent deleting item moving from list 0 to 1s
         source.set(dropListId, dropList.splice(dropIndex, 0, dragItem));
     });
 

@@ -1,0 +1,19 @@
+import React from 'react';
+module.exports = function (props) {
+		return (
+			<div>
+				<div draggable="false" className="timeline-badge">{props.props.index + 1}</div>
+				<div draggable="false" className="timeline-panel">
+				<div draggable="false"  className="trash">
+				<span className="icon-trash" onClick={() => {this.props.deleteCard(item)}}></span>
+				</div>
+				<div draggable="false" className="move">
+				<span className="icon-dots"></span>
+				</div>
+				<div draggable="false"  className="timeline-heading">
+				<h4 className="timeline-title" draggable="false" >{props.props.artist} {props.props.name}</h4>
+				</div>
+				</div>
+			</div>
+		);
+};

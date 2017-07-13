@@ -8,7 +8,7 @@ import React from 'react';
 import DragSource from 'react-dnd/lib/DragSource';
 import DropTarget from 'react-dnd/lib/DropTarget';
 var _template1 = require('./template1.js');
-// var _template2 = require('./template2.js');
+var _template2 = require('./template2.js');
 
 import classnames from 'classnames';
 
@@ -51,18 +51,41 @@ const dropTarget = {
     }
 };
 
-class Item extends React.Component {
-    render () {
-        const className = classnames('item', {
-            'is-over': this.props.isOver
-        });
+class Item extends React.Component { 
+        reorderHelper(){
+            let item = {
+                id: this.props.id,
+                listId: this.props.listId,
+                name: this.props.name,
+                artist: this.props.artist,
+                image: this.props.image,
+                onReorder: this.props.onReorder
+            }
+            item.onReorder(
+            {
+                listId: item.listId,
+                id: item.id
+            },
+            {
+                listId: this.props.listId===0?1:0,
+                id: this.props.id
+            });
+            console.log('xxx');
+        }
 
+    render () {
+
+        let templateElem = null;
+        if (this.props.class==='left') {
+        templateElem = <_template1 props={this.props} onReorder={this.reorderHelper} />;
+        } else {
+        templateElem = <_template2 props={this.props} onReorder={this.reorderHelper} />;
+        }
         let content = (
-            <li className={this.props.class}>
-            <_template1 props={this.props} />
+            <li>
+            {templateElem}
             </li>
         );
-
         // Connect as drag source
         content = this.props.connectDragSource(content, { dropEffect: 'move' });
         // Connect as drop target
