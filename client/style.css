@@ -1,0 +1,568 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("./fonts/icomoon.ttf?y01px2") format("truetype"), url("./fonts/icomoon.woff?y01px2") format("woff"), url("./fonts/icomoon.svg?y01px2") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 18, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* line 34, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.icon-search:before {
+  content: "\e91f"; }
+
+/* line 39, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.icon-trash:before {
+  content: "\e925"; }
+
+/* line 44, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.icon-x:before {
+  content: "\e928"; }
+
+/* line 49, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.icon-dots:before {
+  content: "\e907"; }
+
+/* line 53, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px); }
+
+/* line 58, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+[draggable] {
+  -WEBKIT-USER-SELECT: NONE;
+  /* SAFARI, CHROME */
+  -KHTML-USER-SELECT: NONE;
+  /* KONQUEROR */
+  -MOZ-USER-SELECT: NONE;
+  /* FIREFOX */
+  -MS-USER-SELECT: NONE;
+  /* IE */
+  USER-SELECT: NONE;
+  /* CSS3 */ }
+
+/* line 67, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group {
+  display: block;
+  margin-left: -18px;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  background-color: #797E8C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border: solid 1px #797E8C;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px; }
+
+/* line 79, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display: block;
+  color: #ffffff; }
+
+/* line 88, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
+  color: #ffffff; }
+
+/* line 93, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+  color: #ffffff; }
+
+/* line 99, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+  color: #ffffff; }
+
+/* line 105, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+  color: #ffffff; }
+
+/* line 110, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  border-radius: 0px 25px 25px 25px; }
+
+/* line 116, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #ffffff;
+  left: initial;
+  font-size: 14px; }
+
+/* line 131, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.search-form:after {
+  top: 36px;
+  bottom: 0;
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  left: 0px;
+  margin-left: -1.5px;
+  padding-left: 15px;
+  border-left: 1px dashed #c3c3c3;
+  font-size: 188%; }
+
+/* line 146, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.playlist-item-enter {
+  opacity: 0;
+  transform: translate(-250px, 0);
+  transform: translate3d(-250px, 0, 0); }
+
+/* line 152, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.playlist-item-enter.playlist-item-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease;
+  transform: translate(0, 0);
+  transform: translate3d(0, 0, 0);
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.32, 1), linear; }
+
+/* line 162, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.playlist-item-leave {
+  opacity: 1;
+  transform: translate(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.32, 1), linear; }
+
+/* line 171, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.playlist-item-leave.playlist-item-leave-active {
+  opacity: 0;
+  transform: scale(0) translate3d(0, 0, 0); }
+
+/* line 178, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  color: white; }
+
+/* line 194, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important; }
+
+/* line 199, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+#left {
+  background-color: #EAEAF1;
+  padding: 0px 20px 0px 0px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll; }
+
+/* line 210, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+#right {
+  height: 100%;
+  background-color: #2C2F38;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll; }
+  /* line 219, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  #right h3 {
+    color: #ffffff;
+    text-align: center; }
+
+/* line 225, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.dotted {
+  left: 13px;
+  position: relative;
+  width: 80%;
+  margin-bottom: 13px; }
+  /* line 230, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  .dotted:after {
+    bottom: -7px;
+    position: absolute;
+    content: "";
+    width: 30px;
+    background-color: #ffffff;
+    left: 0%;
+    margin-left: 0.5px;
+    height: 1px;
+    border: 1px solid #2C2F38; }
+
+/* line 413, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative; }
+
+/* line 419, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-color: #eeeeee;
+  left: 50%;
+  margin-left: -1.5px; }
+
+/* line 430, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > .timeline_center_li {
+  margin-bottom: 20px;
+  position: relative; }
+
+/* line 435, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li:before,
+.timeline_center > li:after {
+  content: " ";
+  display: table; }
+
+/* line 441, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li:after {
+  clear: both; }
+
+/* line 445, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li:before,
+.timeline_center > li:after {
+  content: " ";
+  display: table; }
+
+/* line 451, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li:after {
+  clear: both; }
+
+/* line 455, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li > div > .timeline_center-panel {
+  width: 46%;
+  float: left;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175); }
+
+/* line 466, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li > div > .timeline_center-panel:before {
+  position: absolute;
+  top: 26px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 15px solid transparent;
+  content: " "; }
+
+/* line 478, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li > div > .timeline_center-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  content: " "; }
+
+/* line 490, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center > li > div > .timeline_center-badge {
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -25px;
+  background-color: #999999;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%; }
+
+/* line 509, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-badge.primary {
+  background-color: #2e6da4 !important; }
+
+/* line 513, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-badge.success {
+  background-color: #3f903f !important; }
+
+/* line 517, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-badge.warning {
+  background-color: #f0ad4e !important; }
+
+/* line 521, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-badge.danger {
+  background-color: #d9534f !important; }
+
+/* line 525, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-badge.info {
+  background-color: #5bc0de !important; }
+
+/* line 529, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-title {
+  margin-top: 0;
+  color: inherit; }
+
+/* line 534, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-body > p,
+.timeline_center-body > ul {
+  margin-bottom: 0; }
+
+/* line 539, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline_center-body > p + p {
+  margin-top: 5px; }
+
+@media (max-width: 767px) {
+  /* line 544, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline_center:before {
+    left: 40px; }
+  /* line 548, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline_center > li > div > .timeline_center-panel {
+    width: calc(100% - 90px);
+    width: -moz-calc(100% - 90px);
+    width: -webkit-calc(100% - 90px); }
+  /* line 554, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline_center > li > div > .timeline_center-badge {
+    left: 15px;
+    margin-left: 0;
+    top: 16px; }
+  /* line 560, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline_center > li > div > .timeline_center-panel {
+    float: right; }
+  /* line 564, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline_center > li > div > .timeline_center-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto; }
+  /* line 571, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline_center > li > div > .timeline_center-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto; } }
+
+/* line 579, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timelineWrapper {
+  position: relative;
+  width: 80%;
+  margin-left: 10%; }
+
+/* line 585, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline {
+  position: relative;
+  list-style: none;
+  padding-left: 0; }
+  /* line 589, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  .timeline:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 1px;
+    background-color: #4554E5;
+    left: 50%;
+    margin-left: -1.5px; }
+  /* line 599, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  .timeline > li {
+    margin-bottom: 20px;
+    position: relative; }
+    /* line 602, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+    .timeline > li:before {
+      content: " ";
+      display: table; }
+    /* line 606, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+    .timeline > li:after {
+      content: " ";
+      display: table;
+      clear: both; }
+    /* line 611, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+    .timeline > li:before {
+      content: " ";
+      display: table; }
+    /* line 615, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+    .timeline > li:after {
+      content: " ";
+      display: table;
+      clear: both; }
+
+/* line 623, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-panel img {
+  max-width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -11px;
+  border-radius: 50%;
+  top: calc(50% - 15px);
+  top: -moz-calc(50% - 15px);
+  top: -webkit-calc(50% - 15px);
+  border: 1px solid #2C2F38; }
+
+/* line 635, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-panel .trash {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: -15px;
+  border-radius: 50%;
+  top: calc(50% - 15px);
+  top: -moz-calc(50% - 15px);
+  top: -webkit-calc(50% - 15px);
+  background-color: #ff717c;
+  color: #EAEAF1;
+  font-size: 150%; }
+
+/* line 649, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-panel .move {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 5px;
+  border-radius: 50%;
+  top: calc(50% - 15px);
+  top: -moz-calc(50% - 15px);
+  top: -webkit-calc(50% - 15px);
+  color: #2C2F38;
+  font-size: 220%; }
+
+/* line 664, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline > li > .timeline-panel {
+  width: 46%;
+  float: left;
+  padding: 15px;
+  position: relative;
+  background-color: white;
+  cursor: move; }
+  /* line 671, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  .timeline > li > .timeline-panel:before {
+    position: absolute;
+    top: calc(50% - 6px);
+    top: -moz-calc(50% - 6px);
+    top: -webkit-calc(50% - 6px);
+    right: -15px;
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #ffffff;
+    border-right: 0 solid #ffffff;
+    border-bottom: 5px solid transparent;
+    content: " "; }
+
+/* line 685, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline > li > .timeline-badge {
+  color: #fff;
+  width: 7px;
+  height: 7px;
+  line-height: 7px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -25px;
+  background-color: #999999;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%; }
+
+/* line 704, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right; }
+  /* line 706, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  .timeline > li.timeline-inverted > .timeline-panel:before, .timeline > li.timeline-inverted > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 7px;
+    left: -7px;
+    right: auto; }
+
+/* line 717, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-badge.blue {
+  background-color: #4554E5 !important; }
+
+/* line 722, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-title {
+  color: inherit;
+  padding-right: 6%; }
+
+/* line 728, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-body > p,
+.timeline-body > ul {
+  margin-bottom: 0; }
+
+/* line 732, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+.timeline-body > p + p {
+  margin-top: 5px; }
+
+/* line 738, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+ul.timeline:before {
+  left: 0px; }
+
+/* line 742, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+ul.timeline > li > .timeline-panel {
+  width: calc(100% - 13px);
+  width: -moz-calc(100% - 13px);
+  width: -webkit-calc(100% - 13px); }
+
+/* line 747, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+ul.timeline > li > .timeline-badge {
+  left: -4px;
+  margin-left: 0;
+  top: calc(50% - 4px);
+  top: -moz-calc(50% - 4px);
+  top: -webkit-calc(50% - 4px); }
+
+/* line 754, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+ul.timeline > li > .timeline-panel {
+  float: right; }
+  /* line 756, /Users/Omi/Desktop/FED-Exercise-omer257/client/style.scss */
+  ul.timeline > li > .timeline-panel:before, ul.timeline > li > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 7px;
+    left: -7px;
+    right: auto; }
+
+/*# sourceMappingURL=style.css.map */

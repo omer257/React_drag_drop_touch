@@ -5,7 +5,7 @@ var loaders = require('./webpack.loaders');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const HOST = process.env.HOST || "0.0.0.0";
-const PORT = process.env.PORT || "8888";
+const PORT = process.env.PORT || "1234";
 
 module.exports = {
 	entry: [
