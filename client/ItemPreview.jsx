@@ -14,6 +14,8 @@ function collect (monitor) {
     return {
         id: item && item.id,
         name: item && item.name,
+        artist: item && item.artist,
+        image: item && item.image,
         currentOffset: monitor.getSourceClientOffset(),
         isDragging: monitor.isDragging()
     };
@@ -54,7 +56,14 @@ function ItemPreview ({
         <div
             className="item preview"
             style={getItemStyles(currentOffset)}>
-            {name} - {artist}
+            <div draggable="false" className="timeline-badge blue"></div>
+					<div draggable="false"  className="timeline-panel">
+					<img draggable="false"  src={image} alt={artist + " " + name}/>
+						<div draggable="false"  className="timeline-heading">
+							<h5 draggable="false"  className="timeline-title">{artist}
+							- {name}</h5>
+						</div>
+					</div>
         </div>
     );
 }

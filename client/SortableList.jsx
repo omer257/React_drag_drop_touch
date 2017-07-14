@@ -9,44 +9,62 @@ import DraggableItem from './DraggableItem.jsx';
 import { List } from 'immutable';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import SearchForm from './SearchForm';
-import _ from 'underscore';
 
 
-export default function SortableList ({ data, id, onReorder, cssObj }) {
+export default class SortableList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.filterSearch = this.filterSearch.bind(this);
 
-    function filterSearch(data) { 
-        data = _.filter(data, function (item) {
-            var lowCaseData = data.toLowerCase();
-        return (item.title.toLowerCase().indexOf(lowCaseData) > -1 || item.artist.toLowerCase().indexOf(lowCaseData) > -1) ;
-        })
+        this.state = { 
+            data: this.props.data,
+            filteredData: this.props.data,
+        };
+    }
+    componentWillReceiveProps(nextProps){
+        if (!this.props.cssObj.isSearchForm) {
+            this.setState({data:nextProps.data,filteredData:nextProps.data})
+        } 
     }
 
-    const items = data.toArray().map((obj,i) => (
+    filterSearch(input) { 
+        const regex = new RegExp(input, 'i');
+        const filtered = this.state.data.filter(function(item) {
+            return (item.get('name').search(regex) > -1 || item.get('artist').search(regex) > -1);
+        });
+
+        this.setState({
+        filteredData: filtered,
+        });
+    }
+
+  render() {
+
+    const items = this.state.filteredData.map((obj,i) => (
         <DraggableItem
             key={i}
             index={i}
             id={obj.get('id')}
-            listId={id}
+            listId={this.props.id}
             name={obj.get('name')}
             artist={obj.get('artist')}
             image={obj.get('image')}
-            onReorder={onReorder}
-            class={cssObj.mainId}
+            onReorder={this.props.onReorder}
+            class={this.props.cssObj.mainId}
         />
     ));
 
     let isSearchForm = null;
-    if (cssObj.isSearchForm) {
-        isSearchForm = <SearchForm filterSearch={filterSearch}/>;
+    if (this.props.cssObj.isSearchForm) {
+        isSearchForm = <SearchForm filterSearch={this.filterSearch}/>;
     } 
-
     return (
-    <div className={cssObj.mainClass} id={cssObj.mainId}>
+        <div className={this.props.cssObj.mainClass} id={this.props.cssObj.mainId}>
         {isSearchForm}
-        <div className={cssObj.isDottedClass}>
-          <h3 style={{color: cssObj.h1Color}}>{cssObj.h1}</h3>
+        <div className={this.props.cssObj.isDottedClass}>
+          <h3 style={{color: this.props.cssObj.h1Color}}>{this.props.cssObj.h1}</h3>
         </div>
-            <ul className={cssObj.ulClass}>
+            <ul className={this.props.cssObj.ulClass}>
                <ReactCSSTransitionGroup
                     transitionName="reactAnimation"
                     transitionAppear={true}
@@ -59,6 +77,7 @@ export default function SortableList ({ data, id, onReorder, cssObj }) {
 
     </div>
     );
+  }
 }
 
 SortableList.propTypes = {

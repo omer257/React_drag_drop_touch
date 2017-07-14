@@ -36,20 +36,20 @@ let cssObj = [{
 let z = 0;
 for (; z < 20; z++) {
     initialData1.push({
-        id: z,
+        id: z+1000,
         name: songs[z].title,
         artist: songs[z].artist,
         image: songs[z].image
     });
 }
-for ( let i=0; i<  2; i++) {
-    initialData2.push({
-        id: i,
-        name: songs[i+1].title,
-        artist: songs[i+1].artist,
-        image: songs[i+1].image
-    });
-}
+// for ( let i=0; i<  2; i++) {
+//     initialData2.push({
+//         id: i,
+//         name: songs[i+1].title,
+//         artist: songs[i+1].artist,
+//         image: songs[i+1].image
+//     });
+// }
 
 let datasource = window.datasource = Immutable.fromJS([initialData1, initialData2]);
 
@@ -57,6 +57,8 @@ function reorder (fromObj, toObj,addAsLast) {
     const dragListId = fromObj.listId;
     const dragId = fromObj.id;
     const dropListId = toObj.listId;
+
+        console.log(toObj);
     const dropId = toObj.id;
     const behaviour = {
         allowDelete: true,
