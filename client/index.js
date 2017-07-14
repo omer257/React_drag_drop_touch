@@ -42,6 +42,7 @@ for (; z < 20; z++) {
         image: songs[z].image
     });
 }
+//
 // for ( let i=0; i<  2; i++) {
 //     initialData2.push({
 //         id: i,
@@ -57,27 +58,28 @@ function reorder (fromObj, toObj,addAsLast) {
     const dragListId = fromObj.listId;
     const dragId = fromObj.id;
     const dropListId = toObj.listId;
-
-        console.log(toObj);
     const dropId = toObj.id;
     const behaviour = {
         allowDelete: true,
         allowCopy: true,
     };
     
-    
-    if(dragListId===1 && dropListId===0){
+    const allowDragToSource = dragListId===1 && dropListId===0;
+    const allowSortMainList = dragListId===0 && dropListId===0;
+    const PreventDeleteFromSource = dragListId===0 && dropListId===1;
+
+    if(allowDragToSource){
         behaviour.allowCopy=false;
     }
-    if(dragListId===0 && dropListId===1){
+    if(PreventDeleteFromSource){
         behaviour.allowDelete=false;
     }
-    if(dragListId===0 && dropListId===0){
+    if(allowSortMainList){
         behaviour.allowDelete=false;
         behaviour.allowCopy=false;
     }
     
-    console.log(`Dragged ${dragId} in list ${dragListId} to ${dropId} in list ${dropListId}`);
+    // console.log(`Dragged ${dragId} in list ${dragListId} to ${dropId} in list ${dropListId}`);
 
     datasource = datasource.withMutations(source => {
         const dragList = source.get(dragListId);

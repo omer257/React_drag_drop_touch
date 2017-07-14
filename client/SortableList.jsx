@@ -4,30 +4,22 @@
  */
 'use strict';
 
-import React from 'react';
-import DragSource from 'react-dnd/lib/DragSource';
+import React from 'react'; 
 import DropTarget from 'react-dnd/lib/DropTarget';
 import DraggableItem from './DraggableItem.jsx';
 import { List } from 'immutable';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import SearchForm from './SearchForm';
 
-const dragSource = {
-    beginDrag (props) {
-        return {
-            id: props.id,
-            listId: props.listId,
-            name: props.name,
-            artist: props.artist,
-            image: props.image,
-            onReorder: props.onReorder
-        };
-    }
-};
-
 const dropTarget = {
     drop (props, monitor) {
         const item = monitor.getItem();
+
+        // Don't trigger if inside same drag container
+        if(item.listId === props.id){
+            return;
+        }
+
         // Don't trigger reorder if it's to the same spot
         if (
             item.listId === props.listId &&
@@ -113,13 +105,9 @@ class SortableList extends React.Component {
                 </ul>
         </div>
         );
-    
-        // Connect as drag source
-        content = this.props.connectDragSource(content, { dropEffect: 'move' });
+     
         // Connect as drop target
-        content = this.props.connectDropTarget(content);
-        // Connect to drag layer
-        content = this.props.connectDragPreview(content);
+        content = this.props.connectDropTarget(content); 
 
         return content;
   }
@@ -129,29 +117,19 @@ SortableList.propTypes = {
     id: React.PropTypes.number.isRequired,
     data: React.PropTypes.instanceOf(List).isRequired,
     onReorder: React.PropTypes.func,
-    // react-dnd props
-    connectDragSource: React.PropTypes.func,
-    connectDropTarget: React.PropTypes.func,
-    connectDragPreview: React.PropTypes.func,
+    // react-dnd props 
+    connectDropTarget: React.PropTypes.func, 
     onReorder: React.PropTypes.func,
     isDragging: React.PropTypes.bool,
     isOver: React.PropTypes.bool
 };
 
 
-export default DragSource(
-    'Item',
-    dragSource,
-    (connect, monitor) => ({
-        connectDragSource: connect.dragSource(),
-        connectDragPreview: connect.dragPreview(),
-        isDragging: monitor.isDragging()
-    })
-)(DropTarget(
+export default DropTarget(
     'Item',
     dropTarget,
     (connect, monitor) => ({
         connectDropTarget: connect.dropTarget(),
         isOver: monitor.isOver()
     })
-)(SortableList));
+)(SortableList);

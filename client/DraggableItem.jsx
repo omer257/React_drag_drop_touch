@@ -6,6 +6,7 @@
 
 import React from 'react';
 import DragSource from 'react-dnd/lib/DragSource';
+import DropTarget from 'react-dnd/lib/DropTarget';
 var _template1 = require('./template1.js');
 var _template2 = require('./template2.js');
 
@@ -28,6 +29,32 @@ const dragSource = {
     }
 };
 
+const dropTarget = {
+    drop (props, monitor) {
+        const item = monitor.getItem();
+        
+        // Don't trigger reorder if item came from another box.
+        if(item.listId !== props.listId){
+            return;
+        }
+        // Don't trigger reorder if it's to the same spot
+        if (
+            item.listId === props.listId &&
+            item.id === props.id
+        ) {
+            return;
+        }
+        item.onReorder(
+            {
+                listId: item.listId,
+                id: item.id
+            },
+            {
+                listId: props.listId,
+                id: props.id
+            },0);
+    }
+};
 
 class Item extends React.Component { 
         reorderHelper(){
@@ -39,6 +66,7 @@ class Item extends React.Component {
                 image: this.props.image,
                 onReorder: this.props.onReorder
             }
+        console.log('222',item.listId,this.props.listId=== 0 ? 1 : 0);
             item.onReorder(
             {
                 listId: item.listId,
@@ -64,7 +92,9 @@ class Item extends React.Component {
             </li>
         );
         // Connect as drag source
-        content = this.props.connectDragSource(content, { dropEffect: 'move' }); 
+        content = this.props.connectDragSource(content, { dropEffect: 'move' });
+        // Connect as drop target
+        content = this.props.connectDropTarget(content);
         // Connect to drag layer
         content = this.props.connectDragPreview(content);
 
@@ -78,7 +108,8 @@ Item.PropTypes = {
     text: React.PropTypes.string,
 
     // react-dnd props
-    connectDragSource: React.PropTypes.func, 
+    connectDragSource: React.PropTypes.func,
+    connectDropTarget: React.PropTypes.func,
     connectDragPreview: React.PropTypes.func,
     onReorder: React.PropTypes.func,
     isDragging: React.PropTypes.bool,
@@ -93,4 +124,11 @@ export default DragSource(
         connectDragPreview: connect.dragPreview(),
         isDragging: monitor.isDragging()
     })
-)(Item);
+)(DropTarget(
+    'Item',
+    dropTarget,
+    (connect, monitor) => ({
+        connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver()
+    })
+)(Item));
