@@ -47,7 +47,7 @@ const dropTarget = {
             {
                 listId: props.listId,
                 id: props.id
-            });
+            },0);
     }
 };
 
@@ -69,7 +69,7 @@ class Item extends React.Component {
             {
                 listId: this.props.listId=== 0 ? 1 : 0,
                 id: this.props.id
-            });
+            },1);
         }
 
     render () {

@@ -34,7 +34,7 @@ let cssObj = [{
     h1:'My playlist'
 }]
 let z = 0;
-for (; z < 3; z++) {
+for (; z < 20; z++) {
     initialData1.push({
         id: z,
         name: songs[z].title,
@@ -42,7 +42,7 @@ for (; z < 3; z++) {
         image: songs[z].image
     });
 }
-for ( let i=0; i<  3; i++) {
+for ( let i=0; i<  2; i++) {
     initialData2.push({
         id: i,
         name: songs[i+1].title,
@@ -53,17 +53,38 @@ for ( let i=0; i<  3; i++) {
 
 let datasource = window.datasource = Immutable.fromJS([initialData1, initialData2]);
 
-function reorder (fromObj, toObj) {
+function reorder (fromObj, toObj,addAsLast) {
     const dragListId = fromObj.listId;
     const dragId = fromObj.id;
     const dropListId = toObj.listId;
     const dropId = toObj.id;
+    const behaviour = {
+        allowDelete: true,
+        allowCopy: true,
+    };
+    
+    
+    if(dragListId===1 && dropListId===0){
+        behaviour.allowCopy=false;
+    }
+    if(dragListId===0 && dropListId===1){
+        behaviour.allowDelete=false;
+    }
+    if(dragListId===0 && dropListId===0){
+        behaviour.allowDelete=false;
+        behaviour.allowCopy=false;
+    }
+    
     console.log(`Dragged ${dragId} in list ${dragListId} to ${dropId} in list ${dropListId}`);
+
     datasource = datasource.withMutations(source => {
         const dragList = source.get(dragListId);
         const dragIndex = dragList.findIndex(item => item.get('id') === dragId);
         const dragItem = dragList.get(dragIndex);
-       
+
+        if(behaviour.allowDelete){
+            source.set(dragListId, dragList.delete(dragIndex));
+        }
         const dropList = source.get(dropListId);
         let dropIndex = dropList.findIndex(item => item.get('id') === dropId);
 
@@ -74,12 +95,12 @@ function reorder (fromObj, toObj) {
             dropIndex++;
         }
 
-        if(dropListId===0 && dragListId===1){//prevent draggin from  list 0 to 1
-            source.set(dragListId, dragList.delete(dragIndex));//prevent deleting item moving from list 0 to 1s
-            return;
+        if(addAsLast){
+             dropIndex = dropList.size+1;
         }
-        source.set(dragListId, dragList.delete(dragIndex));//prevent deleting item moving from list 0 to 1s
-        source.set(dropListId, dropList.splice(dropIndex, 0, dragItem));
+        if(behaviour.allowCopy){
+            source.set(dropListId, dropList.splice(dropIndex, 0, dragItem));
+        }
     });
 
     render(datasource);
