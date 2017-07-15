@@ -7,10 +7,7 @@ export class SearchForm extends React.Component {
         //Bind funcs
         this.handleChange = this.handleChange.bind(this);
         this.state = {input: ''};
-    }
-    static propTypes = {
-        // filterSearch: PropTypes.func.isRequired
-    };
+    } 
     handleChange(event) {
         let item = event.target.value;
         this.setState({input: item});
@@ -37,4 +34,7 @@ export class SearchForm extends React.Component {
     }
 }
 
+SearchForm.PropTypes = {
+    filterSearch: PropTypes.func.isRequired
+};
 export default SearchForm;

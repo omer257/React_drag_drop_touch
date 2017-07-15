@@ -5,6 +5,7 @@
 'use strict';
 
 import React from 'react'; 
+import PropTypes from 'prop-types';
 import DropTarget from 'react-dnd/lib/DropTarget';
 import DraggableItem from './DraggableItem.jsx';
 import { List } from 'immutable';
@@ -113,14 +114,14 @@ class SortableList extends React.Component {
   }
 }
 
-SortableList.propTypes = {
+SortableList.PropTypes = {
     id: React.PropTypes.number.isRequired,
     data: React.PropTypes.instanceOf(List).isRequired,
     onReorder: React.PropTypes.func,
     // react-dnd props 
     connectDropTarget: React.PropTypes.func, 
-    onReorder: React.PropTypes.func,
     isDragging: React.PropTypes.bool,
+    cssObj: React.PropTypes.object,
     isOver: React.PropTypes.bool
 };
 

@@ -5,6 +5,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import DragLayer from 'react-dnd/lib/DragLayer';
 var _template1 = require('./template1.js');
 var _template2 = require('./template2.js');
@@ -14,6 +15,7 @@ function collect (monitor) {
     return {
         id: item && item.id,
         name: item && item.name,
+        listid: item && item.listid,
         artist: item && item.artist,
         image: item && item.image,
         currentOffset: monitor.getSourceClientOffset(),
@@ -68,7 +70,7 @@ function ItemPreview ({
     );
 }
 
-ItemPreview.propTypes = {
+ItemPreview.PropTypes = {
     id: React.PropTypes.number,
     name: React.PropTypes.string,
     artist: React.PropTypes.string,

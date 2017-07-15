@@ -5,6 +5,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import DragSource from 'react-dnd/lib/DragSource';
 import DropTarget from 'react-dnd/lib/DropTarget';
 var _template1 = require('./template1.js');
@@ -32,7 +33,7 @@ const dragSource = {
 const dropTarget = {
     drop (props, monitor) {
         const item = monitor.getItem();
-        
+
         // Don't trigger reorder if item came from another box.
         if(item.listId !== props.listId){
             return;
@@ -66,7 +67,6 @@ class Item extends React.Component {
                 image: this.props.image,
                 onReorder: this.props.onReorder
             }
-        console.log('222',item.listId,this.props.listId=== 0 ? 1 : 0);
             item.onReorder(
             {
                 listId: item.listId,
