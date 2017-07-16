@@ -39,10 +39,6 @@ let z = 0;
 for (; z < songs.length; z++) {
     initialData1.push({id: z, name: songs[z].title, artist: songs[z].artist, image: songs[z].image});
 }
-//
-// for ( let i=0; i<  2; i++) {     initialData2.push({         id: i, name:
-// songs[i+1].title,         artist: songs[i+1].artist,         image:
-// songs[i+1].image     }); }
 
 let datasource = window.datasource = Immutable.fromJS([initialData1, initialData2]);
 
@@ -71,18 +67,17 @@ function reorder(fromObj, toObj, addAsLast) {
         behaviour.allowCopy = false;
     }
 
-    // console.log(`Dragged ${dragId} in list ${dragListId} to ${dropId} in list
-    // ${dropListId}`);
-
     datasource = datasource.withMutations(source => {
         const dragList = source.get(dragListId);
         const dragIndex = dragList.findIndex(item => item.get('id') === dragId);
         const dragItem = dragList.get(dragIndex);
 
+
         if (behaviour.allowDelete) {
             source.set(dragListId, dragList.delete(dragIndex));
         }
         const dropList = source.get(dropListId);
+
         let dropIndex = dropList.findIndex(item => item.get('id') === dropId);
 
         if (dragListId === dropListId && dragIndex <= dropIndex) {
@@ -90,21 +85,18 @@ function reorder(fromObj, toObj, addAsLast) {
         }
 
         if (addAsLast) {
-            dropIndex = dropList.size + 1;
+            dropIndex = dropList.size;
         }
 
         if (behaviour.allowCopy) {
             source.set(dropListId, dropList.splice(dropIndex, 0, dragItem));
-            // source.updateIn(dropList, item => item.get('id') + 1) source.set(dropIndex,
-            // dropIndex.update(name='omer'));
-        }
-        // source.update(dragList.findIndex(item => {
-        //     return item.get('artist') === 'Unknown'
-        // }), (item) => {
-        //     console.log(item);
-        //     // return item.set("artist", "artist");
-        // });
 
+            if(dropListId !== dragListId){
+            //increment id when adding an item - not moving
+                source.setIn([dropListId, dropIndex, 'id'], dropIndex+1);
+            }
+
+        }
     });
 
     render(datasource);
