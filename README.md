@@ -1,22 +1,10 @@
-# Wisdo React Exercise
-A React FED Exercise
+A Project made to test react drag and drop
+Based on React Drag and drop - https://github.com/react-dnd/react-dnd
+Along with support touch based on yahoo (as touch backend) -  https://github.com/yahoo/react-dnd-touch-backend
+Along with Dragpreview support and Immutable.js
 
-### Instructions
 
-Our benevolent supreme leader is not happy with the type of music that is played in the office. You are tasked with
-building him an interface to select the music that will be played daily in our facilities to ensure worker productivity remains high.
-
-![Screenshot][screenshot1]
-
-#### Guidelines
-
-The purpose of this exercise is to test building real-life react components. We will review the code and check that it works.
-But just as important it should be clean clear and _simple_.
-
-+ You are allowed (in fact encouraged) to use any 3rd party library you need to.
-+ You may use any flavour of javascript you like. We have set up ES6 support via babel6 but you can add/remove presets and loaders if you need to
-
-#### Feature List for the application
+#### Feature list made with this ap
 
 + The interface will be delivered over the web and accessed either from his Excellency laptop or iPad Mini.
  + The result should work both on iPad resolution (768x1024 px	1024x768 px) and bigger screen resolutiosn well
@@ -34,8 +22,9 @@ But just as important it should be clean clear and _simple_.
 
 ### To start
 
-* You'll need to have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed in your system.
-* clone the project
+* You'll need to have git and node installed + npm
+
+* clone the project from https://github.com/omer257/React_drag_drop_touch
 
 
 Then install the dependencies:
@@ -50,9 +39,8 @@ Start the server
 > $ npm start
 ```
 
-Client code is in the client directory. webpack is configured around index.html and index.js but the structure is up to you.
+Client code is in the client directory.
 
 
-Open the web browser to `http://localhost:8888/`
+Open the web browser to `http://0.0.0.0:1234/`
 
-[screenshot1]: https://github.com/medicope/FED-Exercise-omer257/blob/master/docs/screenshot1.png "Screenshot"
